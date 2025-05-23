@@ -7,7 +7,7 @@ from app.models.program.program_model import Program  # Importing the Program cl
 # Creating a Blueprint instance
 program_bp = Blueprint('program', __name__, url_prefix='/api/v1/program')  
 
-#Registering new product
+#Registering new program
 @program_bp.route('/register', methods=['POST'])  # Defining a route for product registration
 def create_program():
     data = request.json  
