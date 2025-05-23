@@ -18,6 +18,6 @@ class Student(db.Model):
     #foreign key
     program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
     
-    # Relationship to Program
-    program= db.relationship('student', back_populates='student')
+    # # Relationship to Program
+    # program= db.relationship('program', back_populates='student')
     

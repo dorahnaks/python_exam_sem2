@@ -16,7 +16,7 @@ class Course(db.Model):
     #foreign key
     program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
     
-    # # Relationship to Program
-    program = db.relationship('Program', back_populates='course')
+    # # # Relationship to Program
+    # program = db.relationship('Program', back_populates='course')
 
     
