@@ -11,7 +11,7 @@ course_bp = Blueprint('course', __name__, url_prefix='/api/v1/course')
 
 #creating  a course
 @course_bp.route('/create', methods=['POST'])
-def createBook():
+def create_course():
     data = request.get_json()
     name = data.get('name')
     code = data.get('code')

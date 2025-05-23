@@ -58,7 +58,7 @@ def get_all_authors():
         
         all_students = Student.query.all() # Querying the database for all students
         
-        student_data = [] # Creating an empty list to store the authors data
+        student_data = [] # Creating an empty list to store the student data
         for student in all_students:
             student_info = {
                 'id' : student.id,
