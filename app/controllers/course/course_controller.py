@@ -28,7 +28,7 @@ def create_course():
        #creating a new course
        new_course = Course(id=id,name=name,code=code)
        
-       # saving the company to the database
+       # saving the course to the database
        db.session.add(new_course)
        db.session.commit()
 
