@@ -66,7 +66,7 @@ def delete_program(id):
         return jsonify ({
             'message' : 'program updated successfully'
             'program' : {
-                'name' : program.name
+                'name' : program.name,
                 'description' : prrogram.description
             }
         })
