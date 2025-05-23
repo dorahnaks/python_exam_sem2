@@ -64,10 +64,10 @@ def delete_program(id):
         db.session.commit() # Committing the changes to the database
         
         return jsonify ({
-            'message' : 'program updated successfully'
+            'message' : 'program updated successfully',
             'program' : {
                 'name' : program.name,
-                'description' : prrogram.description
+                'description' : program.description
             }
         })
         
