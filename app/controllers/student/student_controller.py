@@ -83,3 +83,7 @@ def get_all_authors():
             'error': str(e)
             }), HTTP_500_INTERNAL_SERVER_ERROR
         
+        
+@student_bp.route('/<int:id>', methods=['DELETE'])
+def delete_student(id):
+    pass
