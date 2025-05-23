@@ -54,8 +54,22 @@ def delete_program(id):
         return jsonify({'message': 'Enter id'}), HTTP_404_NOT_FOUND
     
     try:
-        data = request.get_json() # Extracting the JSON data            
+        data = request.get_json() # Extracting the JSON data    
+        name = data.get('name')
+        description = data.get('description')        
 
+        program.name =  name
+        program.description = description
+
+        db.session.commit() # Committing the changes to the database
+        
+        return jsonify ({
+            'message' : 'program updated successfully'
+            'program' : {
+                'name' : program.name
+            }
+        })
+        
     except Exception as e:
         return jsonify({'error': str(e)}), HTTP_500_INTERNAL_SERVER_ERROR
 
