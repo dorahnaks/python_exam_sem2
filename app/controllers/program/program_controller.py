@@ -44,3 +44,30 @@ def create_program():
     except Exception as e:
         db.session.rollback() # db.session.rollback() is called to undo any changes made during the transaction in case of an error
         return jsonify({'error': str(e)}), HTTP_500_INTERNAL_SERVER_ERROR
+    
+    
+@program_bp.route('/delete', methods=['DELETE'])
+def delete_program(id):
+    program = program.query.get(id)
+    
+    if not id:
+        return jsonify({'message': 'Enter id'}), HTTP_404_NOT_FOUND
+    
+    try:
+        data = request.get_json() # Extracting the JSON data            
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), HTTP_500_INTERNAL_SERVER_ERROR
+
+
+
+
+
+
+
+
+
+
+
+
+
