@@ -1,7 +1,7 @@
 # Import statements
 from datetime import datetime
 from app.extensions import db
-# from app.models.program.program_model import Program
+from app.models.program.program_model import Program
 
 class Course(db.Model):
     __tablename__ = 'course' # Giving a table name
@@ -14,9 +14,9 @@ class Course(db.Model):
     updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow)
     
     #foreign key
-    # program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
+    program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
     
-    # # # Relationship to Program
-    # program = db.relationship('Program', back_populates='course')
+    # # Relationship to Program
+    program = db.relationship('Program', back_populates='course')
 
     

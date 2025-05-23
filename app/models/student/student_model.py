@@ -16,8 +16,8 @@ class Student(db.Model):
     updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow)
     
     #foreign key
-    # program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
+    program_id = db.Column(db.Integer, db.ForeignKey(Program.id), nullable=True)
     
-    # # Relationship to Program
-    # program= db.relationship('student', back_populates='student')
+    # Relationship to Program
+    program= db.relationship('student', back_populates='student')
     
