@@ -48,3 +48,38 @@ def create_student():
     except Exception as e:
         db.session.rollback() # db.session.rollback() is called to undo any changes made during the transaction in case of an error
         return jsonify({'error': str(e)}), HTTP_500_INTERNAL_SERVER_ERROR
+    
+    
+# Getting all students from the database
+@student_bp.get('/authors')  
+def get_all_authors():
+    
+    try:
+        
+        all_students = Student.query.all() # Querying the database for all students
+        
+        student_data = [] # Creating an empty list to store the authors data
+        for student in all_students:
+            student_info = {
+                'id' : student.id,
+                'name' : student.name,
+                'address' : student.address,
+                'contact' : student.contact,
+                'age' : student.age,
+                'created_at' : student.created_at
+                
+            } # Creating a dictionary to store the students's data
+            student_data.append(student_info) # Appending the students's data to the student_data list
+        
+        return jsonify({
+            'message': 'Students retrieved successfully',
+            'total students': len(all_students),
+            'students': student_data
+        }) , HTTP_200_OK # Returning a response to the client
+    
+
+    except Exception as e:
+        return jsonify({
+            'error': str(e)
+            }), HTTP_500_INTERNAL_SERVER_ERROR
+        
